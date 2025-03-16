@@ -1,0 +1,467 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor del header flotante */
+header {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #3533cd;
+    padding: 15px 30px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    justify-content: space-between;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border: 1px solid white;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+    margin-right: 10px;
+}
+
+/* Navegación */
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Sección hero con imagen de fondo y difuminado */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    width: 100%;
+    background: rgba(8, 25, 71, 0.6);
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: -130px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: white;
+    clip-path: path("M0,100 L0,0 Q50,100 100,0 L100,100 Z");
+    z-index: 3;
+    transform-origin: left; /* Mantiene la expansión desde la izquierda */
+    transform: scaleX(13.6); /* Expande solo hacia la derecha */
+}
+
+
+
+/* Capa de difuminado */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('image/junta.jpeg') center/cover no-repeat;
+    opacity: 0.8; /* Ajusta la transparencia */
+    z-index: -1;
+    clip-path: ellipse(100% 80% at 50% 20%);
+}
+
+/* Asegurar que el contenido esté por encima del difuminado */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 8, 39, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    width: 48%; /* Igual al header */
+    max-width: 1200px; /* Limita el ancho para que no sea demasiado grande */
+    text-align: left; /* Alinea el texto a la izquierda */
+    padding-left: 2%;
+    
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.hero-image img {
+    max-width: 100%; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    max-height: none; /* Permite que crezca sin restricciones */
+    display: block;
+    margin: 200px auto 0; /* Aumenta el margen superior para bajarla */
+    position: relative;
+    z-index: 2;
+    transform: translateY(50px); /* Baja la imagen */
+}
+
+.hero-image img {
+    height: auto;
+    max-height: 950px;
+    display: block;
+    position: relative;
+    z-index: 2;
+    
+}
+
+/* Contenedor de las cards */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: transparent;
+    position: relative;
+    top: -150px; /* 🔼 Sube más las cards */
+    z-index: 10; /* Asegura que estén bien arriba */
+}
+
+/* Estilos para las cards */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    width: 230px;
+    position: relative;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Efecto hover */
+.card:hover {
+    transform: translateY(-10px);
+    background-color: #007BFF;
+    color: white;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.card .ver-mas {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 15px 30px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+    margin-right: 60px;
+}
+
+/* Efecto hover del botón */
+.card .ver-mas:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid #007BFF;
+}
+
+.card p {
+    text-align: left;
+    padding: 0 30px;
+    line-height: 1.5;
+}
+
+.card h3 { 
+    text-align: left;
+    padding: 0 30px; /* Añade espacio a los lados para mejorar la lectura */
+}
+
+/* Ajuste escalonado de las cards */
+.card:nth-child(1) { margin-top: 120px; }
+.card:nth-child(2) { margin-top: 90px; }
+.card:nth-child(3) { margin-top: 60px; }
+.card:nth-child(4) { margin-top: 30px; }
+.card:nth-child(5) { margin-top: 0px; }
+
+.notaria-section {
+    padding: 30px 0;
+    background-color: white;
+    position: relative;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Contenedor principal */
+.notaria-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: -20px;
+}
+
+/* Columna izquierda (Texto) */
+.notaria-text {
+    flex: 1;
+    max-width: 50%;
+    text-align: left;
+    padding-right: 30px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3533cd;
+    text-transform: uppercase;
+}
+
+.notaria-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #3533cd;
+    margin-bottom: 15px;
+}
+
+.notaria-description {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Contenedor para imagen y video */
+.notaria-media {
+    flex: 1;
+    max-width: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Logo con transparencia en el fondo */
+.notaria-logo {
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+    opacity: 0.5; /* Transparencia */
+    z-index: 0;
+    transition: transform 0.2s ease-out;
+}
+
+/* Imagen de fondo */
+.notaria-image {
+    width: 80%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: auto;
+    z-index: 1;
+}
+
+/* Video sobre la imagen */
+.notaria-video {
+    position: absolute;
+    bottom: -80px;  /* Ajusta la posición */
+    left: 40%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 5px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Estilos para el botón hamburguesa */
+.hamburger {
+    display: none; /* Ocultamos el botón hamburguesa por defecto en pantallas grandes */
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+}
+
+.hamburger .bar {
+    background-color: white;
+    height: 4px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Menú de navegación */
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Menú desplegable */
+nav ul {
+    display: flex; /* Menú visible en pantallas grandes */
+}
+
+/* Menú colapsado en dispositivos móviles */
+nav ul.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Mostramos el botón hamburguesa en pantallas pequeñas */
+    }
+
+    nav ul {
+        flex-direction: column; /* Colocamos los items del menú en columna */
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: #3533cd;
+        padding: 20px 0;
+        display: none; /* El menú está oculto por defecto */
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    nav ul.show {
+        display: block; /* Mostramos el menú cuando se le da clic al botón hamburguesa */
+    }
+}
+
+
+/* Para tabletas y dispositivos más pequeños */
+@media (max-width: 1024px) {
+    .hero {
+        height: 80vh; /* Reducir la altura en pantallas más pequeñas */
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero-content {
+        width: 70%;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* Para móviles */
+@media (max-width: 768px) {
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px 15px;
+        z-index: 999;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .hero {
+        height: 60vh; /* Menor altura */
+        padding: 0 15px;
+    }
+
+    .hero-content {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .card {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .notaria-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .notaria-text, .notaria-media {
+        max-width: 100%;
+        padding-right: 0;
+    }
+
+    .notaria-video {
+        width: 100%;
+        max-width: 90%;
+    }
+
+    .notaria-logo {
+        width: 100%;
+    }
+}
