@@ -52,4 +52,52 @@ function toggleMenu() {
     navMenu.classList.toggle('show');
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    const mapsContainer = document.querySelector('.department-maps-container');
+
+    // Función para pausar la animación al pasar el mouse
+    mapsContainer.addEventListener('mouseenter', function () {
+        mapsContainer.style.animationPlayState = 'paused';
+    });
+
+    // Función para reanudar la animación al quitar el mouse
+    mapsContainer.addEventListener('mouseleave', function () {
+        mapsContainer.style.animationPlayState = 'running';
+    });
+
+    // Función para detener el desplazamiento al hacer clic en un mapa
+    const departmentMaps = document.querySelectorAll('.department-map');
+    departmentMaps.forEach(map => {
+        map.addEventListener('click', function () {
+            // Detener la animación de desplazamiento
+            mapsContainer.style.animationPlayState = 'paused';
+
+            // Opcional: Puedes hacer algo cuando el mapa se hace clic (como mostrar más información)
+            alert(`Has hecho clic en el mapa de ${map.id}`);
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.querySelector(".departments-container");
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("departments-wrapper");
+
+    while (container.firstChild) {
+        wrapper.appendChild(container.firstChild);
+    }
+    container.appendChild(wrapper);
+
+    function duplicateContent() {
+        const departments = wrapper.children;
+        for (let i = 0; i < departments.length; i++) {
+            let clone = departments[i].cloneNode(true);
+            wrapper.appendChild(clone);
+        }
+    }
+
+    duplicateContent();
+});
+
+
 
