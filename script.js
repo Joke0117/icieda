@@ -78,26 +78,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector(".departments-container");
-    const wrapper = document.createElement("div");
-    wrapper.classList.add("departments-wrapper");
-
-    while (container.firstChild) {
-        wrapper.appendChild(container.firstChild);
+  
+    // Crear contenedor deslizante
+    const sliderTrack = document.createElement("div");
+    sliderTrack.classList.add("slider-track");
+  
+    // Obtener elementos originales
+    const departments = Array.from(container.children);
+  
+    // Duplicarlos 3 veces (total 4x) para asegurar que siempre hay cola
+    for (let i = 0; i < 4; i++) {
+      departments.forEach(dep => {
+        sliderTrack.appendChild(dep.cloneNode(true));
+      });
     }
-    container.appendChild(wrapper);
+  
+    // Limpiar y añadir el track
+    container.innerHTML = "";
+    container.appendChild(sliderTrack);
+  });
 
-    function duplicateContent() {
-        const departments = wrapper.children;
-        for (let i = 0; i < departments.length; i++) {
-            let clone = departments[i].cloneNode(true);
-            wrapper.appendChild(clone);
-        }
-    }
-
-    duplicateContent();
-});
-
-
-
+// duplicamos los page de las card 

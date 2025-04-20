@@ -561,7 +561,7 @@ nav ul.hidden {
     /* Reducimos el grosor */
     width: 100%;
     position: relative;
-    top: -630px;
+    top: -956px;
     /* Ajustamos para pegarla con la de arriba */
     clip-path: path("M0,450 L0,0 Q50,100 100,0 L100,450 Z");
     transform-origin: left;
@@ -597,11 +597,13 @@ nav ul.hidden {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     overflow: hidden;
-    padding: 20px 0;
+    padding: 20px 0px;
     z-index: 10;
-    top: -300px;
+    top: -450px;
+    margin: 0 auto;
+    width: 93%;
 }
 
 .department {
@@ -617,11 +619,19 @@ nav ul.hidden {
 }
 
 .flag {
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 70%; /* Ajusta el tamaño de la bandera */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
+    aspect-ratio: 1 / 1; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    top: -50px;
 }
 
 .department p {
@@ -631,7 +641,7 @@ nav ul.hidden {
 }
 
 .department img:first-child {
-    width: 220px; /* Aumenta el tamaño del mapa */
+    width: 300px; /* Aumenta el tamaño del mapa */
     height: auto;
 }
 
@@ -642,11 +652,28 @@ nav ul.hidden {
     margin-top: 5px; /* Espacio entre el mapa y la bandera */
 }
 
-@keyframes moveCarousel {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-100%);
-    }
+.slider-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-left 60s linear infinite;
+    gap: 40px;
 }
+
+.department-name {
+    position: relative; /* 👈 necesario para que top funcione */
+    font-size: 24px;
+    text-transform: uppercase; 
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    top: -40px; /* 👈 ahora sí surtirá efecto */
+}
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
